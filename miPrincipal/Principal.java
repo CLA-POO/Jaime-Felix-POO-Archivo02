@@ -1,10 +1,7 @@
 package miPrincipal;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.Vector;
+import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
@@ -12,28 +9,19 @@ public class Principal {
         System.out.println( "===================" );
         System.out.println();
 
-        // Leer archivo persona.dat
+        // Leer archivo persona.csv
         try
         {
             File archivoEntrada = ;
-            FileInputStream flujoArchivoEntrada = ;
-            ObjectInputStream flujoObjetoEntrada = ;
+            Scanner flujoArchivoEntrada = ;
 
-            // Crear Vector de tipo Persona
+            // Ciclo para leer los datos del archivo
+            // y mostrar los datos de todas las personas
 
-            // Leer el vector del archivo y asignarlo al objeto Vector<Persona>
-
-            // Mostrar los datos de todas las personas
-
+        }
+        finally
+        {
             // Cerrar flujo
-        }
-        catch (ClassNotFoundException cnfe)
-        {
-            System.out.println( "Error de clase no encontrada" );
-        }
-        catch (IOException ioe)
-        {
-            System.out.println("Error de E/S de archivo");
         }
     }
 }
