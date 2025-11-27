@@ -1,11 +1,6 @@
 package miPrincipal;
 
-import java.io.Serializable;
-
 public class Persona{
-    // Valor de serializacion de la clase. No quitar ni modificar
-    private static final long serialVersionUID = 1L;
-
     // Atributos de la persona
     private int     clave;
     private String  nombre;
