@@ -3,10 +3,7 @@ package miTest;
 import miPrincipal.*;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.Vector;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,38 +11,36 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 
 class AppTest {
-    static Vector<Persona> p = new Vector<Persona>();
+    static Persona p;
 
     @BeforeAll public static void setUp() {
         try
         {
-            File archivoEntrada = new File("personas.dat");
-            FileInputStream flujoArchivoEntrada = new FileInputStream(archivoEntrada);
-            ObjectInputStream flujoObjetoEntrada = new ObjectInputStream(flujoArchivoEntrada);
+            File archivoEntrada = new File("personas.csv");
+            Scanner flujoArchivoEntrada = new Scanner(archivoEntrada);
+            flujoArchivoEntrada.useDelimiter(",|" + System.getProperty("line.separator"));
 
-            p = (Vector<Persona>) flujoObjetoEntrada.readObject();
+            p = new Persona(flujoArchivoEntrada.nextInt(),flujoArchivoEntrada.next(),flujoArchivoEntrada.nextInt(),flujoArchivoEntrada.next().charAt(0));
         }
-        catch (ClassNotFoundException cnf )
+        finally
         {
-        }
-        catch (IOException ioe)
-        {            
+            flujoArchivoEntrada.close();
         }
     }
 
     @Test public void testClave() {
-        assertTrue(p.get(0).getClave()==1);
+        assertTrue(p.getClave()==1);
     }
 
     @Test public void testNombre() {
-        assertTrue(p.get(1).getNombre().equals("Jaime"));
+        assertTrue(p.getNombre().equals("Adriana"));
     }
 
     @Test public void testEdad() {
-        assertTrue(p.get(2).getEdad()==34);
+        assertTrue(p.getEdad()==38);
     }
 
     @Test public void testGenero() {
-        assertTrue(p.get(0).getGenero()=='F');
+        assertTrue(p.getGenero()=='F');
     }
 }
