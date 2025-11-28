@@ -15,8 +15,8 @@ public class Principal {
         Scanner flujoArchivoEntrada = null;
         try
         {
-            File archivoEntrada = ;
-            Scanner flujoArchivoEntrada = ;
+            archivoEntrada = ;
+            flujoArchivoEntrada = ;
 
             // Ciclo para leer los datos del archivo
             // y mostrar los datos de todas las personas
