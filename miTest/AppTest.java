@@ -19,8 +19,8 @@ class AppTest {
         Scanner flujoArchivoEntrada = null;
         try
         {
-            File archivoEntrada = new File("personas.csv");
-            Scanner flujoArchivoEntrada = new Scanner(archivoEntrada);
+            archivoEntrada = new File("personas.csv");
+            flujoArchivoEntrada = new Scanner(archivoEntrada);
             flujoArchivoEntrada.useDelimiter(",|" + System.getProperty("line.separator"));
 
             p = new Persona(flujoArchivoEntrada.nextInt(),flujoArchivoEntrada.next(),flujoArchivoEntrada.nextInt(),flujoArchivoEntrada.next().charAt(0));
