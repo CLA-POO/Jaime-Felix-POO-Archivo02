@@ -3,6 +3,7 @@ package miTest;
 import miPrincipal.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,8 @@ class AppTest {
     static Persona p;
 
     @BeforeAll public static void setUp() {
+        File archivoEntrada = null;
+        Scanner flujoArchivoEntrada = null;
         try
         {
             File archivoEntrada = new File("personas.csv");
@@ -21,6 +24,9 @@ class AppTest {
             flujoArchivoEntrada.useDelimiter(",|" + System.getProperty("line.separator"));
 
             p = new Persona(flujoArchivoEntrada.nextInt(),flujoArchivoEntrada.next(),flujoArchivoEntrada.nextInt(),flujoArchivoEntrada.next().charAt(0));
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         finally
         {
