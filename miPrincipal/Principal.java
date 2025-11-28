@@ -1,6 +1,7 @@
 package miPrincipal;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Principal {
@@ -9,7 +10,9 @@ public class Principal {
         System.out.println( "===================" );
         System.out.println();
 
-        // Leer archivo persona.csv
+        // Leer archivo personas.csv
+        File archivoEntrada = null;
+        Scanner flujoArchivoEntrada = null;
         try
         {
             File archivoEntrada = ;
@@ -18,6 +21,10 @@ public class Principal {
             // Ciclo para leer los datos del archivo
             // y mostrar los datos de todas las personas
 
+        }
+        catch (FileNotFoundException e)
+        {
+            // Manejar excepción de archivo no encontrado
         }
         finally
         {
